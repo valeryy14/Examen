@@ -30,10 +30,11 @@
                      var ing=$("#ingenieria").val();
                      var sem=$("#semestre").val();
                     
+		    
                     $.ajax({
                         type:"POST",
                         url:"http://localhostvalery.260mb.net/envio.php",
-                       data:"&numero_de_control="+nuc+"&nombre="+nom+"&apellidos="+app+"&ingenieria="+ing+"&semestre="+sem,
+                       data:"numero_de_control="+nuc+"&nombre="+nom+"&apellidos="+app+"&ingenieria="+ing+"&semestre="+sem,
                         success: recepcion
                         });
                     });
@@ -60,13 +61,9 @@
                         url:"http://localhostvalery.260mb.net/envioCal.php",
                          data:"&numero_de_control="+nuc+"&parcial1="+pa1+"&parcial2="+pa2+"&parcial3="+pa3+"&parcial4="+pa4+"&promedio="+pro,
                          success: recepcion
-                        });
+                        });    
                     });
-                    
-                function recepcion(datos){
-                    alert(datos);
-                    }    
-                    });
+		});
             </script>
         </head>
         <body>
@@ -93,17 +90,21 @@
                 </div>
                 <div data-role="content">
                     
-                    <form method="POST" action="envio_datos.php">
+                    <form method="POST" action="envio.php">
                         <div class="ui-field-contain">
                             
                              <label for="numero_de_control">Numero de control: </label>
 	                     <input type="text" name="numero_de_control" id="numero_de_control" >
+				
 	                    <label for="nombre">Nombre: </label>
 	                  <input type="text" name="nombre" id="nombre" >
+			    
 	                <label for="apellidos">Apellidos: </label>
 	               <input type="text" name="apellidos" id="apellidos" >
+			
 	              <label for="ingenieria">Ingenieria: </label>
-	              <input type="text" name="ingenieria" id="ingenieria" >	  
+	              <input type="text" name="ingenieria" id="ingenieria" >
+			
 	             <label for="semestre">Semestre: </label>
 	             <input type="text" name="semestre" id="semestre"  >
                         </div>
