@@ -20,27 +20,24 @@
                 $(document).ready(function inicio(){
                     
                 var btnEnvioDat=$("#enviar_dat");
-                var btnEnvioCal=$("#enviar_cal");
+                var btnEnvioCal=$("#enviar_cal")
                 
                 btnEnvioDat.click(function enviarDatos(){
                     
-                     var nuc=$("#numero_de_controll").val();
+                     var nuc=$("#numero_de_control").val();
                      var nom=$("#nombre").val();
                      var app=$("#apellidos").val();
                      var ing=$("#ingenieria").val();
                      var sem=$("#semestre").val();
                     
-		    
                     $.ajax({
                         type:"POST",
                         url:"http://localhostvalery.260mb.net/envio.php",
-                       data:"numero_de_control="+nuc+"&nombre="+nom+"&apellidos="+app+"&ingenieria="+ing+"&semestre="+sem,
+                       data:"&numero_de_control="+nuc+"&nombre="+nom+"&apellidos="+app+"&ingenieria="+ing+"&semestre="+sem,
                         success: recepcion
                         });
                     });
-                function recepcion(datos){
-                    alert(datos);
-                     }
+                
                 btnEnvioCal.click(function enviarDatos(){
                      
                          var nuc=$("#numero_de_control").val();
@@ -61,9 +58,13 @@
                         url:"http://localhostvalery.260mb.net/envioCal.php",
                          data:"&numero_de_control="+nuc+"&parcial1="+pa1+"&parcial2="+pa2+"&parcial3="+pa3+"&parcial4="+pa4+"&promedio="+pro,
                          success: recepcion
-                        });    
+                        });
                     });
-		});
+                    
+                function recepcion(datos){
+                    alert(datos);
+                    }    
+                    });
             </script>
         </head>
         <body>
@@ -72,7 +73,7 @@
                 <div data-role="header" id="en_principal">
                     <p>Registro<p/>
                 </div>
-                <div data-role="content">
+                <div >
                     <p>Alumnos</p>
                     <a href="#Reg_Datos" data-role="button" data-transition="fade" id="menus2"></a>
                     <p>Calificaciones</p>
@@ -90,21 +91,17 @@
                 </div>
                 <div data-role="content">
                     
-                    <form method="POST" action="envio.php">
+                    <form method="POST" action="envio_datos.php">
                         <div class="ui-field-contain">
                             
-                             <label for="numero_de_controll">Numero de control: </label>
-	                     <input type="text" name="numero_de_controll" id="numero_de_controll" >
-				
+                             <label for="numero_de_control">Numero de control: </label>
+	                     <input type="text" name="numero_de_control" id="numero_de_control" >
 	                    <label for="nombre">Nombre: </label>
 	                  <input type="text" name="nombre" id="nombre" >
-			    
 	                <label for="apellidos">Apellidos: </label>
 	               <input type="text" name="apellidos" id="apellidos" >
-			
 	              <label for="ingenieria">Ingenieria: </label>
-	              <input type="text" name="ingenieria" id="ingenieria" >
-			
+	              <input type="text" name="ingenieria" id="ingenieria" >	  
 	             <label for="semestre">Semestre: </label>
 	             <input type="text" name="semestre" id="semestre"  >
                         </div>
