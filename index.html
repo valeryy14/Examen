@@ -33,11 +33,14 @@
                     $.ajax({
                         type:"POST",
                         url:"http://localhostvalery.260mb.net/envio.php",
-                       data:"&numero_de_control="+nuc+"&nombre="+nom+"&apellidos="+app+"&ingenieria="+ing+"&semestre="+sem,
+                       data:"numero_de_control="+nuc+"&nombre="+nom+"&apellidos="+app+"&ingenieria="+ing+"&semestre="+sem,
                         success: recepcion
                         });
                     });
-                
+                function recepcion(datos){
+                    alert(datos);
+                    }    
+                    });
                 btnEnvioCal.click(function enviarDatos(){
                      
                          var nuc=$("#numero_de_control").val();
@@ -56,7 +59,7 @@
                          $.ajax({
                         type:"POST",
                         url:"http://localhostvalery.260mb.net/envioCal.php",
-                         data:"&numero_de_control="+nuc+"&parcial1="+pa1+"&parcial2="+pa2+"&parcial3="+pa3+"&parcial4="+pa4+"&promedio="+pro,
+                         data:"numero_de_control="+nuc+"&parcial1="+pa1+"&parcial2="+pa2+"&parcial3="+pa3+"&parcial4="+pa4+"&promedio="+pro,
                          success: recepcion
                         });
                     });
